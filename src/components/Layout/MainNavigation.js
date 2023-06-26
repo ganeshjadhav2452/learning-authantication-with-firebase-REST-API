@@ -4,7 +4,7 @@ import classes from './MainNavigation.module.css';
 import AuthContext from '../authContext/AuthContext';
 const MainNavigation = () => {
 
-  const {logoutHandler} = useContext(AuthContext)
+  const {logoutHandler, isLoggedIn} = useContext(AuthContext)
   return (
     <header className={classes.header}>
       <Link to='/'>
@@ -15,9 +15,9 @@ const MainNavigation = () => {
           <li>
             <Link to='/auth'>Login</Link>
           </li>
-          <li>
+          {isLoggedIn && <li>
             <Link to='/profile'>Profile</Link>
-          </li>
+          </li>}
           <li>
             <button onClick={logoutHandler}>Logout</button>
           </li>

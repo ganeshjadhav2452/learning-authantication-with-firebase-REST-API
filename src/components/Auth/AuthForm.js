@@ -45,10 +45,11 @@ const AuthForm = () => {
         })
 
         if(response.status === 'ok'){
-          useHistory.replace('/')
+          useHistory.replace('/profile')
         }
         const data = await response.json();
-        updateTheToken(data.token)
+        updateTheToken(data.idToken)
+        localStorage.setItem('token',data.idToken)
         console.log(data)
       } catch (err) {
         console.log(err)
